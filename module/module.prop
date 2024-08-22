@@ -1,0 +1,6 @@
+id=dump_dex
+name=Dump Dex
+version=v0.0.1
+versionCode=1
+author=richar
+description=Used for dumping dex files from the app
