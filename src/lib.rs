@@ -144,11 +144,17 @@ extern "C" fn new_open_common(base: usize, size: usize) {
         return;
     };
 
+    let dir = format!("/data/data/{}/dexes", package);
+    if let Err(e) = std::fs::create_dir_all(&dir) {
+        error!("create dir error: {:?}", e);
+        return;
+    }
+
     let crc = crc::Crc::<u32>::new(&crc::CRC_32_CD_ROM_EDC);
     let mut digest = crc.digest();
     digest.update(dex_data);
 
-    let file_name = format!("/data/data/{}/{:08x}.dex", package, digest.finalize());
+    let file_name = format!("/data/data/{}/dexes/{:08x}.dex", package, digest.finalize());
     if let Err(e) = std::fs::write(file_name, dex_data) {
         error!("write file error: {:?}", e);
     }
