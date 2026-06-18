@@ -1,6 +1,6 @@
 # Zygisk Dump Dex
 
-This repository is a demo project which hook `libdexfile.so` to dump dex. This is **only** test on my Android 14 and 15.
+This repository is a demo project which hook `libdexfile.so` to dump dex. This is **only** test on my Android 14,15.
 
 **⚠️⚠️Use it at your own risk.⚠️⚠️**
 
@@ -25,9 +25,12 @@ cargo install cargo-ndk
 just package-release # output is `out/zygisk-debug.zip`
 just flash-release # flash the zip to your device (only for KernelSU)
 ```
-## Usage
 
-1. Install the module via KernelSU and reboot your device.
-2. Put the package name of the app you want to dump dex into `/data/adb/modules/dump_dex/list.txt`.
-3. Lunch the app you want to dump dex.
-4. The dex file will be dumped into `/data/data/<package_name>/dexes/`.
+## Usage
+## Instructions
+### KernelSU & Apatch
+- KSU WebUI
+
+### Magisk
+- Action button to open WebUI
+- Support [KSUWebUIStandalone](https://github.com/5ec1cff/KsuWebUIStandalone) and [MMRL](https://github.com/MMRLApp/MMRL)
